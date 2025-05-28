@@ -839,16 +839,16 @@ class PdfPageViewState extends State<PdfPageView> {
                   (Theme.of(context).colorScheme.primary),
             ),
             backgroundColor: _pdfViewerThemeData!.progressBarColor != null
-                ? _pdfViewerThemeData!.progressBarColor!.withValues(
-                    alpha: 0.2,
+                ? _pdfViewerThemeData!.progressBarColor!.withOpacity(
+                    0.2,
                   )
                 : _effectiveThemeData!.progressBarColor != null
-                    ? _effectiveThemeData!.progressBarColor!.withValues(
-                        alpha: 0.2,
+                    ? _effectiveThemeData!.progressBarColor!.withOpacity(
+                        0.2,
                       )
                     : (Theme.of(
                         context,
-                      ).colorScheme.primary.withValues(alpha: 0.2)),
+                      ).colorScheme.primary.withOpacity(0.2)),
           ),
         ),
       ),

@@ -158,32 +158,34 @@ extension PdfColorExtension on PdfColor {
 extension MaterialColorExtension on Color {
   /// Converts the [Color] to [PdfColor].
   PdfColor get pdfColor =>
-      PdfColor((r * 255).round(), (g * 255).round(), (b * 255).round());
+      PdfColor(red * 255, green * 255, blue * 255);
 
   /// Converts the [Color] to a lighter color based on the given factor.
   Color getLightenColor(double factor) {
     factor = factor.clamp(-1.0, 1.0);
 
-    double red = r;
-    double green = g;
-    double blue = b;
+    double r = red / 255.0;
+    double g = green / 255.0;
+    double b = blue / 255.0;
 
     if (factor < 0) {
       factor += 1;
-      red *= factor;
-      green *= factor;
-      blue *= factor;
+      r *= factor;
+      g *= factor;
+      b *= factor;
     } else {
-      red = (1 - red) * factor + red;
-      green = (1 - green) * factor + green;
-      blue = (1 - blue) * factor + blue;
+      r = (1 - r) * factor + r;
+      g = (1 - g) * factor + g;
+      b = (1 - b) * factor + b;
     }
 
     return Color.fromRGBO(
-      (red * 255).round(),
-      (green * 255).round(),
-      (blue * 255).round(),
-      a,
+      (r * 255).round(),
+      (g * 255).round(),
+      (b * 255).round(),
+      opacity,
     );
   }
+
+
 }

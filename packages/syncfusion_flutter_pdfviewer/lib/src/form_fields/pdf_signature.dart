@@ -422,8 +422,8 @@ void _showSignaturePadDialog(
                                 fontFamily: 'Roboto-Medium',
                                 color: Theme.of(context).brightness ==
                                         Brightness.light
-                                    ? Colors.black.withValues(alpha: 0.87)
-                                    : Colors.white.withValues(alpha: 0.87),
+                                    ? Colors.black.withOpacity(0.87)
+                                    : Colors.white.withOpacity(0.87),
                               ),
                     ),
                     InkWell(
@@ -515,9 +515,9 @@ void _showSignaturePadDialog(
                                         : Theme.of(context).brightness ==
                                                 Brightness.light
                                             ? Colors.black
-                                                .withValues(alpha: 0.87)
+                                                .withOpacity(0.87)
                                             : Colors.white
-                                                .withValues(alpha: 0.87),
+                                                .withOpacity(0.87),
                                   ),
                             ),
                             SizedBox(
