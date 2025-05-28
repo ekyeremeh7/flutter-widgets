@@ -924,7 +924,7 @@ class _SfLegendState extends State<SfLegend> {
       _textStyle = themeData.textTheme.bodySmall!
           .copyWith(
               color:
-                  themeData.textTheme.bodySmall!.color!.withValues(alpha: 0.87))
+                  themeData.textTheme.bodySmall!.color!.withOpacity(0.87))
           .merge(widget.textStyle);
     }
     if (!widget.isComplex) {
@@ -1396,8 +1396,8 @@ class _LegendItemState extends State<_LegendItem>
                 details.text,
                 style: widget.textStyle!.copyWith(
                   color: widget.textStyle!.foreground == null
-                      ? widget.textStyle!.color!.withValues(
-                          alpha: _opacityTween.evaluate(_toggleAnimation))
+                      ? widget.textStyle!.color!.withOpacity(
+                          _opacityTween.evaluate(_toggleAnimation))
                       : widget.textStyle!.foreground!.color,
                 ),
               )
