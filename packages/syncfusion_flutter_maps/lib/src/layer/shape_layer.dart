@@ -1573,9 +1573,12 @@ class _GeoJSONLayerState extends State<GeoJSONLayer>
           mapModel.legendMapperIndex = i;
           mapModel.colorValue = colorValue;
           if (mapper.minOpacity != null && mapper.maxOpacity != null) {
-            return mapper.color.withOpacity(
-                alpha: lerpDouble(mapper.minOpacity, mapper.maxOpacity,
-                    (colorValue - mapper.from!) / (mapper.to! - mapper.from!)));
+            return mapper.color.withOpacity(lerpDouble(
+                    mapper.minOpacity,
+                    mapper.maxOpacity,
+                    (colorValue - mapper.from!) /
+                        (mapper.to! - mapper.from!)) ??
+                0.0);
           }
           return mapper.color;
         }
